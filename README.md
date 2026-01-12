@@ -1,116 +1,132 @@
-# Projet de Moteur de Jeu en Java avec LibGDX
+# Moteur de Jeu RPG 2D avec LibGDX
 
-## Description
-Ce projet est un moteur de jeu extensible développé en Java à l'aide de la bibliothèque LibGDX. Il est conçu pour fournir une base modulaire et claire permettant de développer facilement des jeux multiplateformes. L'architecture sépare la logique principale du moteur des plateformes d'exécution, ce qui facilite la maintenance et l'extension du projet. Un jeu exemple est inclus afin de démontrer le fonctionnement du moteur et son utilisation.
+## 📋 Description
 
-## Plateformes
-Le projet est organisé en plusieurs modules :
-- **core** : module principal contenant la logique partagée du moteur de jeu.
-- **lwjgl3** : module desktop utilisant LWJGL3 pour l'exécution sur ordinateur.
+Moteur de jeu extensible de type **RPG/Survivor** développé en Java avec LibGDX. Le jeu permet d'enrichir le contenu **sans modifier le code Java**, uniquement via des fichiers de configuration JSON et l'éditeur Tiled.
 
-## Prérequis
-Avant de compiler et d'exécuter le projet, assurez-vous d'avoir :
-- Java Development Kit (JDK) version 17 ou supérieure
-- Gradle ou le wrapper Gradle inclus (`gradlew`)
+**Type de jeu** : Jeu de survie où le joueur affronte des vagues d'ennemis. Le joueur tire automatiquement et doit survivre le plus longtemps possible.
 
-## Structure du Projet
+---
+
+## 🎯 Objectifs Pédagogiques
+
+✅ Programmation Orientée Objet (héritage, polymorphisme, interfaces)  
+✅ Design Patterns (Factory, Singleton, MVC)  
+✅ Lecture et manipulation de fichiers JSON  
+✅ Architecture Modèle-Vue-Contrôleur (MVC)  
+✅ Code propre et documenté  
+
+---
+
+## 🏗️ Structure du Projet
+
 ```
-├── .gradle/            # Fichiers de cache Gradle
-├── .idea/              # Configuration IntelliJ IDEA
-├── assets/             # Ressources du jeu (images, sons, cartes Tiled, etc.)
-├── core/               # Code source principal du moteur de jeu
-├── gradle/             # Wrapper Gradle
-├── lwjgl3/             # Code source pour la plateforme desktop
-├── build.gradle        # Configuration Gradle principale
-├── nativeimage.gradle  # Configuration pour GraalVM Native Image
-├── .editorconfig       # Configuration de l'éditeur
-├── .gitattributes      # Attributs Git
-├── .gitignore          # Fichiers ignorés par Git
-├── build.gradle        # Configuration Gradle du projet racine
-├── gradle.properties   # Propriétés Gradle
-├── gradlew             # Gradle Wrapper (Linux / Mac)
-├── gradlew.bat         # Gradle Wrapper (Windows)
-├── LICENSE             # Licence du projet
-└── README.md           # Documentation
+RPG_GAME_ENGINE-MAIN/
+│
+├── assets/                    # Ressources du jeu
+│   ├── bg/                    # Backgrounds et UI
+│   ├── sprite/                # Sprites des entités
+│   ├── maps/                  # Cartes Tiled (.tmx)
+│   └── data/                  # Configuration JSON
+│       ├── player/            # Configuration du joueur
+│       ├── enemies/           # Types d'ennemis
+│       ├── waves/             # Vagues d'ennemis
+│       ├── collectible/       # Objets ramassables
+│       └── Projectile/        # Configuration des projectiles
+│
+├── core/                      # Code source du moteur (MVC)
+│   └── src/main/java/com/game/
+│       ├── controller/        # Contrôleur
+│       ├── model/             # Modèle (entities, factories, managers)
+│       ├── view/              # Vue (rendu, UI)
+│       └── Main.java          # Point d'entrée
+│
+└── lwjgl3/                    # Module desktop
 ```
 
-## Instructions d'Exécution
+---
 
-### Étape 1 : Récupération du projet
+## 🚀 Installation et Exécution
 
-#### Option 1 : Cloner le dépôt
+### Prérequis
+- Java JDK 17 ou supérieur
+- Gradle (ou wrapper `gradlew` inclus)
+
+### Cloner le Projet
 ```bash
-git clone https://github.com/MehdiBenzada/game-engine-pcoo  
+git clone https://github.com/MehdiBenzada/game-engine-pcoo
 cd game-engine-pcoo
 ```
 
-#### Option 2 : Téléchargement direct
-Le projet peut également être téléchargé sous forme d'archive ZIP depuis GitHub. Après extraction, placez-vous dans le dossier du projet.
-
-### Étape 2 : Compilation du projet
-
-#### Linux / Mac :
+### Compiler
 ```bash
 ./gradlew build
 ```
 
-#### Windows :
-```bash
-gradlew.bat build
-```
-
-### Étape 3 : Exécution du jeu
-
-#### Méthode 1 : Via Gradle
-
-**Linux / Mac :**
+### Lancer le Jeu
 ```bash
 ./gradlew lwjgl3:run
 ```
 
-**Windows :**
-```bash
-gradlew.bat lwjgl3:run
-```
+---
 
-#### Méthode 2 : Via les scripts fournis (si disponibles)
+## 🎮 Contrôles
 
-**Linux / Mac :**
-```bash
-./run.sh
-```
+- **ZQSD** ou **Flèches** : Déplacement
+- **Échap** : Menu / Pause
+- Le joueur tire automatiquement sur l'ennemi le plus proche
 
-**Windows :**
-```bash
-run.bat
-```
+---
 
-### Étape 4 : Personnalisation
+## 🛠️ Extensibilité (Sans Modifier le Code)
 
-Pour créer votre propre jeu, vous pouvez :
-- Modifier les ressources dans le dossier `assets/`
-- Ajouter vos cartes Tiled dans `assets/`
-- Étendre les classes du module `core/` pour implémenter votre logique de jeu
+Le moteur permet d'ajouter du contenu uniquement via des fichiers :
 
-## Gradle
-Le projet utilise Gradle pour la gestion des dépendances et l'automatisation des tâches.
+✅ **Ennemis** → `assets/data/enemies/*.json`  
+✅ **Vagues** → `assets/data/waves/*.json`  
+✅ **Joueur** → `assets/data/player/player.json`  
+✅ **Collectibles** → `assets/data/collectible/*.json`  
+✅ **Cartes Tiled** → `assets/maps/`  
+✅ **Sprites** → `assets/sprite/`  
 
-### Tâches utiles :
-- `./gradlew build` : Compile le projet
-- `./gradlew clean` : Nettoie les fichiers compilés
-- `./gradlew lwjgl3:run` : Lance le jeu sur desktop
-- `./gradlew lwjgl3:jar` : Crée un JAR exécutable
-- `./gradlew test` : Exécute les tests
-- `./gradlew --refresh-dependencies` : Rafraîchit les dépendances
+> 📖 **Pour les détails**, consultez le rapport du projet (PDF).
 
-## Configuration de l'IDE
+---
 
-### IntelliJ IDEA
-Le projet contient déjà la configuration IntelliJ IDEA (dossier `.idea/`). Ouvrez simplement le projet avec IntelliJ IDEA, qui détectera automatiquement la configuration Gradle.
+## 🧰 Commandes Gradle
 
-### Eclipse
-1. Importez le projet en tant que projet Gradle
-2. Eclipse configurera automatiquement les dépendances
+| Commande | Description |
+|----------|-------------|
+| `./gradlew build` | Compiler le projet |
+| `./gradlew clean` | Nettoyer les fichiers compilés |
+| `./gradlew lwjgl3:run` | Lancer le jeu |
+| `./gradlew lwjgl3:jar` | Créer un JAR exécutable |
 
-## Licence
-Ce projet est distribué sous licence MIT. Consultez le fichier LICENSE pour plus de détails.
+---
+
+## 🎯 Design Patterns
+
+- **MVC** : Architecture Modèle-Vue-Contrôleur
+- **Factory** : Création d'entités depuis JSON
+- **Singleton** : État global du jeu
+
+---
+
+## 👨‍💻 Auteurs
+
+**Mehdi Benzada** - [GitHub](https://github.com/MehdiBenzada)  
+**Bilal Meziani** - [GitHub](https://github.com/mezianibilaldev)
+
+---
+
+## 🔗 Liens Utiles
+
+- [Dépôt GitHub](https://github.com/MehdiBenzada/game-engine-pcoo)
+- [LibGDX Documentation](https://libgdx.com/wiki/)
+- [Tiled Map Editor](https://www.mapeditor.org/)
+
+---
+
+## 📝 Licence
+
+Projet distribué sous licence MIT.
