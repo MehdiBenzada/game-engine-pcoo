@@ -21,7 +21,7 @@ Moteur de jeu extensible de type **RPG/Survivor** développé en Java avec LibGD
 ## 🏗️ Structure du Projet
 
 ```
-RPG_GAME_ENGINE-MAIN/
+game-engine-pcoo/
 │
 ├── assets/                    # Ressources du jeu
 │   ├── bg/                    # Backgrounds et UI
@@ -74,7 +74,7 @@ cd game-engine-pcoo
 
 - **ZQSD** ou **Flèches** : Déplacement
 - **Clic gauche** : Tir
-- **Échap** : Menu / Pause
+- **Échap** :Pause/Quittes
 
 ---
 
