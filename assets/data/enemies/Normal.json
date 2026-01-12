@@ -1,0 +1,18 @@
+{
+  "id": "Normal",
+  "HitBoxType": "rectangle",
+  "idlePath": "assets/sprite/zombie.png",
+  "movePath": "assets/sprite/zombie.png",
+  "attackPath": "assets/sprite/zombie.png",
+  "width": 32,
+  "height": 32,
+  "damage": 20,
+  "maxHp": 100,
+  "speed": 60,
+  "drops": {
+    "coin": 10,
+    "exp": 10
+  },
+  "extra":{
+  }
+}

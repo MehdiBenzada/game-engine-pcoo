@@ -1,0 +1,18 @@
+{
+  "id": "Simple",
+  "HitBoxType": "rectangle",
+  "idlePath": "assets/sprite/necromancer.png",
+  "movePath": "assets/sprite/necromancer.png",
+  "attackPath": "assets/sprite/necromancer.png",
+  "width": 32,
+  "height": 32,
+  "damage": 10,
+  "maxHp": 60,
+  "speed": 50,
+  "aiType": "chase",
+  "drops": {
+    "coin": 5,
+    "exp": 5
+  },
+  "extra": {}
+}

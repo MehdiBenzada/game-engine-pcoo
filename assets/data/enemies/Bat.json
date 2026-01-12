@@ -1,0 +1,18 @@
+{
+  "id": "Bat",
+  "HitBoxType": "rectangle",
+  "idlePath": "assets/sprite/bat.png",
+  "movePath": "assets/sprite/bat-mvt.png",
+  "attackPath": "assets/sprite/bat.png",
+  "width": 28,
+  "height": 16,
+  "damage": 10,
+  "maxHp": 50,
+  "speed": 70,
+  "drops": {
+    "coinDrop": 10,
+    "exp": 10
+  },
+  "extra":{
+  }
+}

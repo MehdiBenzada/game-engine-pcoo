@@ -1,0 +1,18 @@
+{
+  "id": "Player",
+  "spritePath": "assets/sprite/player.png",
+  "spritePathLeft": "assets/sprite/player.png",
+  "width": 32,
+  "height": 32,
+  "speed": 120,
+  "maxHealth": 100,
+  "projectile": {
+    "spritePath": "assets/sprite/cannon.png",
+    "width": 8,
+    "height": 8,
+    "speed": 300,
+    "damage": 10,
+    "fireRate": 0.5,
+    "maxDistance": 600
+  }
+}

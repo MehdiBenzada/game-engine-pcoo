@@ -1,0 +1,14 @@
+{
+  "waveNumber": 2,
+  "spawnInterval": 2.5,
+  "enemies": [
+    {
+      "type": "Normal",
+      "count": 10
+    },
+    {
+      "type": "Bat",
+      "count": 5
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "waveNumber": 1,
+  "spawnInterval": 3.0,
+  "enemies": [
+    {
+      "type": "Normal",
+      "count": 10
+    }
+    
+  ]
+}
