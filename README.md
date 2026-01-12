@@ -4,7 +4,7 @@
 
 Moteur de jeu extensible de type **RPG/Survivor** développé en Java avec LibGDX. Le jeu permet d'enrichir le contenu **sans modifier le code Java**, uniquement via des fichiers de configuration JSON et l'éditeur Tiled.
 
-**Type de jeu** : Jeu de survie où le joueur affronte des vagues d'ennemis. Le joueur tire automatiquement et doit survivre le plus longtemps possible.
+**Type de jeu** : Jeu de survie où le joueur affronte des vagues d'ennemis et doit survivre le plus longtemps possible.
 
 ---
 
@@ -73,8 +73,8 @@ cd game-engine-pcoo
 ## 🎮 Contrôles
 
 - **ZQSD** ou **Flèches** : Déplacement
+- **Clic gauche** : Tir
 - **Échap** : Menu / Pause
-- Le joueur tire automatiquement sur l'ennemi le plus proche
 
 ---
 
