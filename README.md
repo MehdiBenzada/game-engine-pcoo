@@ -1,77 +1,116 @@
-# Projet de Moteur de Jeu en Java avec libGDX
+# Projet de Moteur de Jeu en Java avec LibGDX
 
 ## Description
+Ce projet est un moteur de jeu extensible développé en Java à l'aide de la bibliothèque LibGDX. Il est conçu pour fournir une base modulaire et claire permettant de développer facilement des jeux multiplateformes. L'architecture sépare la logique principale du moteur des plateformes d'exécution, ce qui facilite la maintenance et l'extension du projet. Un jeu exemple est inclus afin de démontrer le fonctionnement du moteur et son utilisation.
 
-Ce projet est un moteur de jeu extensible développé en Java à l’aide de la bibliothèque libGDX. Il est conçu pour fournir une base modulaire et claire permettant de développer facilement des jeux multiplateformes. L’architecture sépare la logique principale du moteur des plateformes d’exécution, ce qui facilite la maintenance et l’extension du projet. Un jeu exemple est inclus afin de démontrer le fonctionnement du moteur et son utilisation.
-
-## Platforms
-
+## Plateformes
 Le projet est organisé en plusieurs modules :
-
 - **core** : module principal contenant la logique partagée du moteur de jeu.
-- **lwjgl3** : module desktop utilisant LWJGL3 pour l’exécution sur ordinateur.
+- **lwjgl3** : module desktop utilisant LWJGL3 pour l'exécution sur ordinateur.
 
 ## Prérequis
-
-Avant de compiler et d’exécuter le projet, assurez-vous d’avoir :
+Avant de compiler et d'exécuter le projet, assurez-vous d'avoir :
 - Java Development Kit (JDK) version 17 ou supérieure
 - Gradle ou le wrapper Gradle inclus (`gradlew`)
 
 ## Structure du Projet
-
-├── core                # Code source principal du moteur de jeu
-├── lwjgl3              # Code source pour la plateforme desktop
-├── concreate_game      # Exemple de jeu utilisant le moteur
-├── build.gradle        # Configuration Gradle
-├── settings.gradle     # Configuration Gradle
+```
+├── .gradle/            # Fichiers de cache Gradle
+├── .idea/              # Configuration IntelliJ IDEA
+├── assets/             # Ressources du jeu (images, sons, cartes Tiled, etc.)
+├── core/               # Code source principal du moteur de jeu
+├── gradle/             # Wrapper Gradle
+├── lwjgl3/             # Code source pour la plateforme desktop
+├── build.gradle        # Configuration Gradle principale
+├── nativeimage.gradle  # Configuration pour GraalVM Native Image
+├── .editorconfig       # Configuration de l'éditeur
+├── .gitattributes      # Attributs Git
+├── .gitignore          # Fichiers ignorés par Git
+├── build.gradle        # Configuration Gradle du projet racine
+├── gradle.properties   # Propriétés Gradle
 ├── gradlew             # Gradle Wrapper (Linux / Mac)
 ├── gradlew.bat         # Gradle Wrapper (Windows)
+├── LICENSE             # Licence du projet
 └── README.md           # Documentation
+```
 
-## Instructions d’Exécution
+## Instructions d'Exécution
 
 ### Étape 1 : Récupération du projet
 
-Option 1 : Cloner le dépôt
-
+#### Option 1 : Cloner le dépôt
+```bash
 git clone https://github.com/MehdiBenzada/game-engine-pcoo  
 cd game-engine-pcoo
+```
 
-Option 2 : Téléchargement direct
+#### Option 2 : Téléchargement direct
+Le projet peut également être téléchargé sous forme d'archive ZIP depuis GitHub. Après extraction, placez-vous dans le dossier du projet.
 
-Le projet peut également être téléchargé sous forme d’archive ZIP depuis GitHub. Après extraction, placez-vous dans le dossier du projet.
+### Étape 2 : Compilation du projet
 
-## Étape 2 : Configuration du répertoire de travail
+#### Linux / Mac :
+```bash
+./gradlew build
+```
 
-Après avoir récupéré le projet, le répertoire de travail doit pointer vers le dossier `concreate_game`.
+#### Windows :
+```bash
+gradlew.bat build
+```
 
-- IntelliJ IDEA : modifier le Working Directory vers `game-engine-pcoo/concreate_game`
-- Eclipse : modifier le Working Directory dans l’onglet Arguments
-- Ligne de commande :
-cd concreate_game
+### Étape 3 : Exécution du jeu
 
-## Étape 3 : Exécution du jeu exemple
+#### Méthode 1 : Via Gradle
 
-Linux / Mac :
+**Linux / Mac :**
+```bash
+./gradlew lwjgl3:run
+```
+
+**Windows :**
+```bash
+gradlew.bat lwjgl3:run
+```
+
+#### Méthode 2 : Via les scripts fournis (si disponibles)
+
+**Linux / Mac :**
+```bash
 ./run.sh
+```
 
-Windows :
+**Windows :**
+```bash
 run.bat
+```
 
-Vous pouvez créer votre propre jeu en ajoutant vos fichiers dans le dossier `concreate_game`.
+### Étape 4 : Personnalisation
+
+Pour créer votre propre jeu, vous pouvez :
+- Modifier les ressources dans le dossier `assets/`
+- Ajouter vos cartes Tiled dans `assets/`
+- Étendre les classes du module `core/` pour implémenter votre logique de jeu
 
 ## Gradle
+Le projet utilise Gradle pour la gestion des dépendances et l'automatisation des tâches.
 
-Le projet utilise Gradle pour la gestion des dépendances et l’automatisation des tâches.
+### Tâches utiles :
+- `./gradlew build` : Compile le projet
+- `./gradlew clean` : Nettoie les fichiers compilés
+- `./gradlew lwjgl3:run` : Lance le jeu sur desktop
+- `./gradlew lwjgl3:jar` : Crée un JAR exécutable
+- `./gradlew test` : Exécute les tests
+- `./gradlew --refresh-dependencies` : Rafraîchit les dépendances
 
-Tâches utiles :
-- build
-- clean
-- lwjgl3:run
-- lwjgl3:jar
-- test
-- --refresh-dependencies
+## Configuration de l'IDE
+
+### IntelliJ IDEA
+Le projet contient déjà la configuration IntelliJ IDEA (dossier `.idea/`). Ouvrez simplement le projet avec IntelliJ IDEA, qui détectera automatiquement la configuration Gradle.
+
+### Eclipse
+1. Importez le projet en tant que projet Gradle
+2. Eclipse configurera automatiquement les dépendances
 
 ## Licence
-
 Ce projet est distribué sous licence MIT. Consultez le fichier LICENSE pour plus de détails.
